@@ -1,25 +1,63 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import AreaInput from "./components/AreaInput";
+import "./App.css";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <AreaInput
+        suggestions={[
+          'Ang Mo Kio',
+          'Bedok',
+          'Bishan',
+          'Boon Lay',
+          'Bukit Batok',
+          'Bukit Merah',
+          'Bukit Panjang',
+          'Bukit Timah',
+          'Central Water Catchment',
+          'Changi',
+          'Choa Chu Kang',
+          'Clementi',
+          'City',
+          'Geylang',
+          'Hougang',
+          'Jalan Bahar',
+          'Jurong East',
+          'Jurong Island',
+          'Jurong West',  
+          'Kallang',
+          'Lim Chu Kang',
+          'Mandai',
+          'Marine Parade',
+          'Novena',
+          'Pasir Ris',
+          'Paya Lebar',
+          'Pioneer',
+          'Pulau Tekong',
+          'Pulau Ubin',
+          'Punggol',
+          'Queenstown',
+          'Seletar',
+          'Sembawang',
+          'Sengkang',
+          'Sentosa',
+          'Serangoon',
+          'Southern Islands',
+          'Sungei Kadut',
+          'Tampines',
+          'Tanglin',
+          'Tengah',
+          'Toa Payoh',
+          'Tuas',
+          'Western Islands',
+          'Western Water Catchment',
+          'Woodlands',
+          'Yishun',
+        ]}
+      />
     </div>
   );
-}
+};
 
 export default App;
