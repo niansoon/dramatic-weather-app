@@ -36,3 +36,13 @@
     transform: rotate(360deg);
   }
 }
+
+.uvDisplay {
+  /* border: 20px solid brown; */
+  color: purple;
+  height: 90px;
+  width: 90px;
+  border-radius: 50%;
+  text-align : center;
+  padding: 100px;
+}
