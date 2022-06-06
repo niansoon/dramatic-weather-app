@@ -19,6 +19,18 @@ input {
   overflow-y: auto;
   padding-left: 0;
   width: 320px;
+
+}
+.suggestions li {
+  padding: 10px;
+}
+.suggestion-active,
+.suggestions li:hover {
+  background-color: #008f68;
+  color: #fae042;
+  cursor: pointer;
+  font-weight: 700;
+
 }
 .suggestions li {
   padding: 10px;
@@ -43,4 +55,8 @@ input {
   border-radius: 50%;
   text-align : center;
   padding: 100px;
+  
+}
+.suggestions li:not(:last-of-type) {
+  border-bottom: 1px solid #999;
 }
