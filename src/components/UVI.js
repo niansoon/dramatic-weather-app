@@ -46,7 +46,8 @@ const UVI = () => {
     return(
         <div>
         <h2>UV Index</h2>
-        <h3 className="uvDisplay" style={colour}>Current: {display}</h3>
+        {/* <h3 className="uvDisplay" style={colour}>Current: {display}</h3> */}
+        <h3 className="uvDisplay">Current: {display}</h3>
         </div>
     )
 }
