@@ -3,16 +3,13 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
-import UVI from './components/UVI';
-import PSI from './components/PSI';
-import AreaInput from './components/AreaInput';
+import WeatherContainer from './screens/WeatherContainer';
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
-    <PSI />
-    <UVI />
+    <WeatherContainer />
   </React.StrictMode>
 );
 
