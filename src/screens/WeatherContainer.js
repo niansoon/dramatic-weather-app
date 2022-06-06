@@ -1,6 +1,8 @@
 import AreaInput from '../components/AreaInput';
 import PSI from '../components/PSI';
 import { useState } from 'react';
+import UVI from '../components/UVI';
+import App from '../App';
 
 const WeatherContainer = () => {
 
@@ -11,8 +13,10 @@ const WeatherContainer = () => {
     }
 
     return (<>
-        <AreaInput userRegion={userRegion}/>
+        <App userRegion={userRegion}/>
+        {/* <AreaInput userRegion={userRegion}/> */}
         <PSI region={region}/>
+        <UVI />
     </>)
 }
 
