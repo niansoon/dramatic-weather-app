@@ -1,6 +1,7 @@
 import { useState } from "react";
 
 const AreaInput = ({ suggestions }) => {
+    //Initial States
     const [filteredSuggestions, setFilteredSuggestions] = useState([]);
     const [activeSuggestionIndex, setActiveSuggestionIndex] = useState(0);
     const [showSuggestions, setShowSuggestions] = useState(false);
@@ -29,8 +30,9 @@ const AreaInput = ({ suggestions }) => {
     };
 
     const SuggestionsListComponent = () => {
+        //Return condition
         return filteredSuggestions.length ? (
-            <ul class="suggestions">
+            <ul className="suggestions">
                 {filteredSuggestions.map((suggestion, index) => {
                     let className;
                     // Flag the active suggestion with a class
@@ -44,10 +46,10 @@ const AreaInput = ({ suggestions }) => {
                     );
                 })}
             </ul>
-        ) : (
-            <div class="no-suggestions">
-                <em>No such location!!</em>
-            </div>
+        ) : ( null
+            // <div className="no-suggestions">
+            //     <em>No such location!!</em>
+            // </div>
         );
     };
 
@@ -66,6 +68,7 @@ const AreaInput = ({ suggestions }) => {
             value={input}
         />
         {showSuggestions && input && <SuggestionsListComponent />}
+        <h1>Test</h1>
     </>);
 };
 export default AreaInput;
