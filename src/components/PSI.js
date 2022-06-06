@@ -22,6 +22,7 @@ const PSI = (props) => {
     useEffect(() => {
         getPSI();
         setRegion(props.region);
+        console.log(region);
         console.log("useEffect has been called") //for checking only
     }, [props.region]);
 
@@ -79,9 +80,11 @@ const PSI = (props) => {
         <div>
             <table>
                 <thead>
-                    <th>PSI</th>
-                    <th>Air Quality</th>
-                </thead>
+                    <tr>
+                        <th>PSI</th>
+                        <th>Air Quality</th>
+                    </tr>
+                </thead>   
                 <tbody>
                     <tr>
                         <td>0 - 50</td>

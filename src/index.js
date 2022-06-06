@@ -2,12 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
-import PSI from './components/PSI'
+import WeatherContainer from './screens/WeatherContainer';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <PSI />
+    <WeatherContainer />
   </React.StrictMode>
 );
 
