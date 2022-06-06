@@ -22,6 +22,7 @@ input {
   padding-left: 0;
   width: 320px;
   position: fixed;
+
 }
 .suggestions li {
   padding: 10px;
@@ -32,7 +33,59 @@ input {
   color: hotpink;
   cursor: pointer;
   font-weight: 700;
+
 }
+.suggestions li {
+  padding: 10px;
+}
+.suggestion-active,
+.suggestions li:hover {
+  background-color: #008f68;
+  color: #fae042;
+  cursor: pointer;
+  font-weight: 700;
+}
+
 .suggestions li:not(:last-of-type) {
   border-bottom: 1px solid #999;
+}
+
+.suggestions li:not(:last-of-type) {
+  border-bottom: 1px solid #999;
+}
+
+.uvDisplay {
+  border: 20px solid brown;
+  color: purple;
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  text-align : center;
+  padding: 50px;
+  font-size: 35px;
+}
+
+#greenUV {
+  border: 20px solid #579c00;
+  color: #579c00;
+}
+
+#yellowUV {
+  border: 20px solid rgb(248, 206, 9);
+  color: rgb(248, 206, 9);
+}
+
+#orangeUV {
+  border: 20px solid #ff8400;
+  color: #ff8400;
+}
+
+#redUV {
+  border: 20px solid #d80000;
+  color: #d80000; 
+}
+
+#purpleUV {
+  border: 20px solid #7031a1;
+  color: #7031a1;
 }

@@ -2,7 +2,13 @@ import React from "react";
 import AreaInput from "./components/AreaInput";
 import "./App.css";
 
-const App = () => {
+const App = (props) => {
+
+  const handleChange = () => {
+    props.userRegion("west")
+}
+handleChange();
+
   return (
     <div>
       <AreaInput
