@@ -9,9 +9,11 @@ input {
 .no-suggestions {
   color: #999;
   padding: 10px;
+  position: fixed;
 }
 .suggestions {
   border: 1px solid #999;
+  background-color: whitesmoke;
   border-top-width: 0;
   list-style: none;
   margin-top: 0;
@@ -25,10 +27,10 @@ input {
 .suggestions li {
   padding: 10px;
 }
-.suggestion-active,
+/* .suggestion-active, */
 .suggestions li:hover {
-  background-color: #008f68;
-  color: #fae042;
+  background-color: lavenderblush;
+  color: hotpink;
   cursor: pointer;
   font-weight: 700;
 
