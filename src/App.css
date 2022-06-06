@@ -48,7 +48,7 @@ input {
 }
 
 .uvDisplay {
-  /* border: 20px solid brown; */
+  border: 20px solid brown;
   color: purple;
   height: 90px;
   width: 90px;

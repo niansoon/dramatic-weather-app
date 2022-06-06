@@ -4,10 +4,14 @@ import App from './App';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import UVI from './components/UVI';
+import PSI from './components/PSI';
+import AreaInput from './components/AreaInput';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+    <App />
+    <PSI />
     <UVI />
   </React.StrictMode>
 );

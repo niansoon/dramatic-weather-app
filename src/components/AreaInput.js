@@ -30,7 +30,7 @@ const AreaInput = ({ suggestions }) => {
 
     const SuggestionsListComponent = () => {
         return filteredSuggestions.length ? (
-            <ul class="suggestions">
+            <ul className="suggestions">
                 {filteredSuggestions.map((suggestion, index) => {
                     let className;
                     // Flag the active suggestion with a class
@@ -45,7 +45,7 @@ const AreaInput = ({ suggestions }) => {
                 })}
             </ul>
         ) : (
-            <div class="no-suggestions">
+            <div className="no-suggestions">
                 <em>No such location!!</em>
             </div>
         );
