@@ -29,6 +29,8 @@ const AreaInput = ({ suggestions }) => {
         setShowSuggestions(false);
     };
 
+    
+
     const SuggestionsListComponent = () => {
         //Return condition
         return filteredSuggestions.length ? (
