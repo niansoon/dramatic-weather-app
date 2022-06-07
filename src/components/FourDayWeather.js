@@ -54,9 +54,8 @@ const FourDayWeather = () => {
 
     useEffect(() => {
         getWeather();
-        console.log(date);
         console.log("useEffect has been called") //for checking only
-    }, []);
+    }, [time]);
 
     return (
         <div className='four-day-container'>
