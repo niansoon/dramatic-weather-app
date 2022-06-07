@@ -1,6 +1,6 @@
 
 const Region = (area) => {
-    var userRegion;
+    var userArea;
     switch (area) {
         //North & North-East together, 14
         case "Ang Mo Kio":
@@ -17,7 +17,7 @@ const Region = (area) => {
         case "Pulau Ubin":
         case "Pulau Tekong":
         case "Sembawang":
-            userRegion = "north-northeast"
+            userArea = "north"
             break;
 
         //South aka Central, 8
@@ -29,7 +29,7 @@ const Region = (area) => {
         case "Southern Islands":
         case "Sentosa":
         case "Tanglin":
-            userRegion = "south-central"
+            userArea = "south"
             break;
 
         //East, 5
@@ -38,7 +38,7 @@ const Region = (area) => {
         case "Paya Lebar":
         case "Pasir Ris":
         case "Tampines":
-            userRegion = "east"
+            userArea = "east"
             break;
 
         //West, 14
@@ -56,7 +56,7 @@ const Region = (area) => {
         case "Jurong Island":
         case "Jalan Bahar":
         case "Tuas":
-            userRegion = "west"
+            userArea = "west"
             break;
 
         //Central, 5
@@ -66,7 +66,7 @@ const Region = (area) => {
         case "Bukit Timah":
         case "Bishan":
         case "Central Water Catchment":
-            userRegion = "central"
+            userArea = "central"
             break;
     };
 };
