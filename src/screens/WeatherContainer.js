@@ -3,6 +3,7 @@ import PSI from '../components/PSI';
 import { useState } from 'react';
 import UVI from '../components/UVI';
 import App from '../App';
+import FourDayWeather from '../components/FourDayWeather';
 
 const WeatherContainer = () => {
 
@@ -14,7 +15,7 @@ const WeatherContainer = () => {
 
     return (<>
         <App userRegion={userRegion}/>
-        {/* <AreaInput userRegion={userRegion}/> */}
+        <FourDayWeather />
         <PSI region={region}/>
         <UVI />
     </>)
