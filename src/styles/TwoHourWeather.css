@@ -1,4 +1,4 @@
-.weather-icon {
+.weather-icon-2hr {
     width: 100px;
     height: 100px;
     background-size: contain;
@@ -19,4 +19,8 @@
 
 #showers-2hr {
     background-image: url('../assets/images/Heavy_Rain.png');
+}
+
+#light-rain-2hr {
+    background-image: url('../assets/images/Light_Rain.png');
 }
