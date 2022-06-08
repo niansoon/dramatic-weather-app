@@ -19,13 +19,14 @@ const WeatherContainer = () => {
     })
 
     return (<>
-        <AreaInput result = {{
+        <AreaInput result={{
             weather: weather,
-            setWeather: setWeather}} />
-        <TwoHourWeather area = {weather.value}/>
-        <TwentyFourHourForecast region = {weather.region}/>
+            setWeather: setWeather
+        }} />
+        <TwoHourWeather area={weather.value} />
+        <TwentyFourHourForecast region={weather.region} />
         <FourDayWeather />
-        <PSI region = {weather.region}/>
+        <PSI region={weather.region} />
         <UVI />
     </>)
 }
