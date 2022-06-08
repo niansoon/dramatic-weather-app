@@ -27,9 +27,8 @@ const AreaInput = ({ suggestions }) => {
         setShowSuggestions(false);
         setFilteredSuggestions([]);
         setActiveSuggestions(0);
+        console.log(input);
     };
-
-    
 
     const SuggestionsListComponent = () => {
         //Condition
