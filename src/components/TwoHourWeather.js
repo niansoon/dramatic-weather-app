@@ -7,7 +7,7 @@ const TwoHourWeather = (props) => {
   const [weather, setWeather] = useState([
     {
       area: "",
-      forecast: "sunny",
+      forecast: "Partly Cloudy",
     },
   ]);
   const [time, setTime] = useState("");
@@ -31,7 +31,7 @@ const TwoHourWeather = (props) => {
     console.log("weather", weather);
     console.log("currentWeather", currentWeather[0].forecast);
     console.log("weather-icon", weatherIcon);
-    
+
     
 
     switch (true) {
@@ -60,6 +60,7 @@ const TwoHourWeather = (props) => {
       {userArea}
       <p>{/* {currentWeather} */}</p>
       <div className='weather-icon' id={weatherIcon}></div>
+      
     </div>
   );
 };
