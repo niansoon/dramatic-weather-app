@@ -54,6 +54,7 @@ const TwentyFourHourForecast = (props) => {
         return (
             <>
             <h3>24-Hour Weather Forecast</h3>
+            <h3>Morning</h3>
             {result}
             <br></br>
             {forecast}
