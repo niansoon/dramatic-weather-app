@@ -69,6 +69,8 @@ const Region = (area) => {
             userArea = "central"
             break;
     };
+
+    return userArea;
 };
 
 export default Region;

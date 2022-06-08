@@ -1,16 +1,18 @@
 import React from "react";
 import AreaInput from "./components/AreaInput";
 import "./App.css";
+import Region from "./components/Region";
 
 const App = (props) => {
 
   const handleChange = () => {
-    props.userRegion("west")
+    props.userRegion("east")
 }
 handleChange();
 
   return (
     <div>
+      <Region />
       <AreaInput
         suggestions={[
           'Ang Mo Kio',
