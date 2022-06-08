@@ -9,8 +9,13 @@ import TwoHourWeather from '../components/TwoHourWeather';
 const WeatherContainer = () => {
 
     const [weather, setWeather] = useState({
-        area: '',
+        value: '',
         region: '',
+    })
+
+    useEffect(() => {
+        console.log("Area:", weather.value);
+        console.log("Region:", weather.region);
     })
 
     return (<>
@@ -19,7 +24,7 @@ const WeatherContainer = () => {
             setWeather: setWeather}} />
         <TwoHourWeather />
         <FourDayWeather />
-        <PSI region = {answer.region}/>
+        <PSI region = {weather.region}/>
         <UVI />
     </>)
 }
