@@ -60,7 +60,6 @@ const TwoHourWeather = (props) => {
       {userArea}
       <p>{/* {currentWeather} */}</p>
       <div className='weather-icon' id={weatherIcon}></div>
-      
     </div>
   );
 };
