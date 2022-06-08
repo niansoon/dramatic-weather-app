@@ -4,30 +4,58 @@ import API from "../API";
 
 const now = new Date();
 
-const TwentyFourHourForecast = () => {
+const TwentyFourHourForecast = (props) => {
 
-    const [forecast, setForecast] = useState([]);
+    const result = props.region;
+    const [forecast, setForecast] = useState('');
     const [time, setTime] = useState([]);
-
+    
     const currentWeather = async () => {
         const { status, data } = await API.get('/environment/24-hour-weather-forecast');
-        const apiForecast = data.items[0].periods[0].regions.central;
+        const apiForecast = data.items[0].periods[0].regions;
         const apiTimestamp = data.items[0].timestamp;
 
         if (status === 200) {
-            setForecast(apiForecast);
+            switch(result){
+                case "north":
+                setForecast(apiForecast.north);
+                break;
+
+                case "south":
+                setForecast(apiForecast.south);
+                break;
+
+                case "east":
+                setForecast(apiForecast.east);
+                break;
+
+                case "west":
+                setForecast(apiForecast.west);
+
+                case "central":
+                setForecast(apiForecast.central);
+                break;
+            }
             setTime(apiTimestamp);
+            return status;
         }
+        
+        
     }
+
+
 
     useEffect(() => {
         currentWeather();
-    }, []);
+        console.log("Region and Forecast:", result, forecast);
+    }, [result]);
 
 
         return (
             <>
             <h3>24-Hour Weather Forecast</h3>
+            {result}
+            <br></br>
             {forecast}
             {/* <div>{dateFormat(now, "dddd, mmmm dS yyyy, h:MM:ss TT")}</div>
             <ul>

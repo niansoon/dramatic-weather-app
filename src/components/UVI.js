@@ -34,7 +34,7 @@ const UVI = () => {
     } else if (display < 8 || display > 5) {
       styles = "orangeUV";
       setStatus("High");
-    } else if (display < 11 || display > 8) {
+    } else if (display < 11 || display > 7) {
       styles = "redUV";
       setStatus("Very High");
     } else if (display > 10) {

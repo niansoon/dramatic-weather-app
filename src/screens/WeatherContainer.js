@@ -5,6 +5,7 @@ import UVI from '../components/UVI';
 import App from '../App';
 import FourDayWeather from '../components/FourDayWeather';
 import TwoHourWeather from '../components/TwoHourWeather';
+import TwentyFourHourForecast from '../components/TwentyFourHourForecast';
 
 const WeatherContainer = () => {
 
@@ -22,7 +23,8 @@ const WeatherContainer = () => {
         <AreaInput result = {{
             weather: weather,
             setWeather: setWeather}} />
-        <TwoHourWeather />
+        <TwoHourWeather area = {weather.value}/>
+        <TwentyFourHourForecast region = {weather.region}/>
         <FourDayWeather />
         <PSI region = {weather.region}/>
         <UVI />
