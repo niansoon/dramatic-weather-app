@@ -5,18 +5,18 @@
     background-repeat: no-repeat;
 }
 
-#thunderstorm {
+#thunderstorm-2hr{
     background-image: url('../assets/images/Thunderstorm.png');
 }
 
-#sunny {
+#sunny-2hr {
     background-image: url('../assets/images/Sunny.png');
 }
 
-#cloudy {
+#cloudy-2hr {
     background-image: url('../assets/images/Cloudy.png');
 }
 
-#showers {
+#showers-2hr {
     background-image: url('../assets/images/Heavy_Rain.png');
 }
