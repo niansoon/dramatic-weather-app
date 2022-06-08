@@ -24,7 +24,7 @@ const TwoHourWeather = (props) => {
         "/environment/24-hour-weather-forecast"
       );
       if (status === 200) {
-        setTemp(data.items[0].temperature);
+        setTemp(data.items[0].general.temperature);
         return(status);
       }
     }
@@ -34,6 +34,7 @@ const TwoHourWeather = (props) => {
 
     useEffect(() => {
         getWeather();
+        getTemperature();
         console.log("weather", weather);
         console.log("weather-icon", weatherIcon);
 
@@ -64,6 +65,10 @@ const TwoHourWeather = (props) => {
             {userArea}
             <div className='weather-icon-2hr' id={weatherIcon}></div>
             <p>{currentWeather}</p>
+            <ul> Temperature
+            <li>High: {temp.high}</li>
+            <li>Low: {temp.low}</li>
+            </ul>
         </div>
     );
 };
