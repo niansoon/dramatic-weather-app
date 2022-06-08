@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import App from './App';
+import AreaInput from './components/AreaInput';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import WeatherContainer from './screens/WeatherContainer';
