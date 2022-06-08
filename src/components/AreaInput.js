@@ -1,74 +1,79 @@
-import { useState } from "react";
+import Select from 'react-select'
+import "../Select.css";
 
-const AreaInput = ({ suggestions }) => {
-    //Define Initial States
-    const [input, setInput] = useState("");
-    const [showSuggestions, setShowSuggestions] = useState(false);
-    const [filteredSuggestions, setFilteredSuggestions] = useState([]);
-    const [activeSuggestions, setActiveSuggestions] = useState(0);
+const options = [
+  { value: 'Ang Mo Kio', label: 'Ang Mo Kio', region: 'North' },
+  { value: 'Bedok', label: 'Bedok', region: 'East' },
+  { value: 'Bishan', label: 'Bishan', region: 'Central' },
+  { value: 'Boon Lay', label: 'Boon Lay', region: 'West' },
+  { value: 'Bukit Batok', label: 'Bukit Batok', region: 'West' },
+  { value: 'Bukit Merah', label: 'Bukit Merah', region: 'South' },
+  { value: 'Bukit Panjang', label: 'Bukit Panjang', region: 'West' },
+  { value: 'Bukit Timah', label: 'Bukit Timah', region: 'Central' },
+  { value: 'Central Water Catchment', label: 'Central Water Catchment', region: 'Central' },
+  { value: 'Changi', label: 'Changi', region: 'East' },
+  { value: 'Choa Chu Kang', label: 'Choa Chu Kang', region: 'West' },
+  { value: 'Clementi', label: 'Clementi', region: 'West' },
+  { value: 'City', label: 'City', region: 'South' },
+  { value: 'Geylang', label: 'Geylang', region: 'South' },
+  { value: 'Hougang', label: 'Hougang', region: 'North' },
+  { value: 'Jalan Bahar', label: 'Jalan Bahar', region: 'West' },
+  { value: 'Jurong East', label: 'Jurong East', region: 'West' },
+  { value: 'Jurong Island', label: 'Jurong Island', region: 'West' },
+  { value: 'Jurong West', label: 'Jurong West', region: 'West' },
+  { value: 'Kallang', label: 'Kallang', region: 'Central' },
+  { value: 'Lim Chu Kang', label: 'Lim Chu Kang', region: 'North' },
+  { value: 'Mandai', label: 'Mandai', region: 'North' },
+  { value: 'Marine Parade', label: 'Marine Parade', region: 'South' },
+  { value: 'Novena', label: 'Novena', region: 'Central' },
+  { value: 'Pasir Ris', label: 'Pasir Ris', region: 'East' },
+  { value: 'Paya Lebar', label: 'Paya Lebar', region: 'East' },
+  { value: 'Pioneer', label: 'Pioneer', region: 'West' },
+  { value: 'Pulau Tekong', label: 'Pulau Tekong', region: 'North' },
+  { value: 'Pulau Ubin', label: 'Pulau Ubin', region: 'North' },
+  { value: 'Punggol', label: 'Punggol', region: 'North' },
+  { value: 'Queenstown', label: 'Queenstown', region: 'South' },
+  { value: 'Seletar', label: 'Seletar', region: 'North' },
+  { value: 'Sembawang', label: 'Sembawang', region: 'North' },
+  { value: 'Sengkang', label: 'Sengkang', region: 'North' },
+  { value: 'Sentosa', label: 'Sentosa', region: 'South' },
+  { value: 'Serangoon', label: 'Serangoon', region: 'North' },
+  { value: 'Southern Islands', label: 'Southern Islands', region: 'South' },
+  { value: 'Sungei Kadut', label: 'Sungei Kadut', region: 'North' },
+  { value: 'Tampines', label: 'Tampines', region: 'East' },
+  { value: 'Tanglin', label: 'Tanglin', region: 'South' },
+  { value: 'Tengah', label: 'Tengah', region: 'West' },
+  { value: 'Toa Payoh', label: 'Toa Payoh', region: 'Central' },
+  { value: 'Tuas', label: 'Tuas', region: 'West' },
+  { value: 'Western Islands', label: 'Western Islands', region: 'West' },
+  { value: 'Western Water Catchment', label: 'Western Water Catchment', region: 'West' },
+  { value: 'Woodlands', label: 'Woodlands', region: 'North' },
+  { value: 'Yishun', label: 'Yishun', region: 'North' }
+]
 
-    //When user types
-    const onChange = (e) => {
-        const userInput = e.target.value;
+const customStyles = {
+  option: (styles) => ({
+    ...styles,
+    cursor: 'pointer',
+    //color: 'pink'
+  })
+}
+const AreaInput = (props) => {
+  const input = props.result;
 
-        //Filter suggestions that do not contain the user's input
-        const filter = suggestions.filter((suggestion) =>
-            suggestion.toLowerCase().indexOf(userInput.toLowerCase()) > -1
-        );
-        setInput(e.target.value);
-        setShowSuggestions(true);
-        setFilteredSuggestions(filter);
-        setActiveSuggestions(0);
-    };
-
-    //When user clicks on suggestions, text goes to input box
-    const onClick = (e) => {
-        setInput(e.target.innerText);
-        setShowSuggestions(false);
-        setFilteredSuggestions([]);
-        setActiveSuggestions(0);
-    };
-
-    const SuggestionsListComponent = () => {
-        //Condition
-        return filteredSuggestions.length ? (
-            <ul className="suggestions">
-                {filteredSuggestions.map((suggestion, index) => {
-                    let className;
-                    // Flag the active suggestion with a class
-                    if (index === activeSuggestions) {
-                        className = "suggestion-active";
-                    }
-                    return (
-                        <li className={className} key={suggestion} onClick={onClick}>
-                            {suggestion}
-                        </li>
-                    );
-                })}
-            </ul>
-        ) : (null);
-    };
-            // <div className="no-suggestions">
-            //     <em>No such location!!</em>
-            // </div>
-
-    // const onKeyDown = (key) => {
-    //     if (key.keyCode === 13 || key.keyCode === 9) {
-    //         setInput(filteredSuggestions[activeSuggestions])
-    //         setFilteredSuggestions([])
-    //     }
-    // }
-
-    return (
-        <>
-        <input
-            type="text"
-            onChange={onChange}
-            // onKeyDown={onKeyDown}
-            value={input}
+  return (
+    <>
+      <div className="select">
+        <Select
+          styles={customStyles}
+          defaultValue={input.weather}
+          onChange={input.setWeather}
+          options={options}
         />
-        {showSuggestions && input && <SuggestionsListComponent />}
-        </>
-    );
+      </div>
+      {input.weather.value}
+    </>
+  );
 };
+
 export default AreaInput;
