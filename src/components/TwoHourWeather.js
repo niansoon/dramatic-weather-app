@@ -8,7 +8,6 @@ const TwoHourWeather = (props) => {
     {
       area: "",
       forecast: "sunny",
-      id: "",
     },
   ]);
   const [time, setTime] = useState("");
@@ -32,6 +31,8 @@ const TwoHourWeather = (props) => {
     console.log("weather", weather);
     console.log("currentWeather", currentWeather[0].forecast);
     console.log("weather-icon", weatherIcon);
+    
+    
 
     switch (true) {
       case currentWeather[0].forecast.includes("Thundery"):
@@ -59,7 +60,6 @@ const TwoHourWeather = (props) => {
       {userArea}
       <p>{/* {currentWeather} */}</p>
       <div className='weather-icon' id={weatherIcon}></div>
-      {currentWeather[0].forecast}
     </div>
   );
 };
