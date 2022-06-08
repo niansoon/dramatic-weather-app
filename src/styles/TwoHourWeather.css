@@ -1,0 +1,22 @@
+.weather-icon {
+    width: 100px;
+    height: 100px;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+#thunderstorm {
+    background-image: url('../assets/images/Thunderstorm.png');
+}
+
+#sunny {
+    background-image: url('../assets/images/Sunny.png');
+}
+
+#cloudy {
+    background-image: url('../assets/images/Cloudy.png');
+}
+
+#showers {
+    background-image: url('../assets/images/Heavy_Rain.png');
+}

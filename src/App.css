@@ -27,7 +27,7 @@ input {
 .suggestions li {
   padding: 10px;
 }
-/* .suggestion-active, */
+.suggestion-active
 .suggestions li:hover {
   background-color: lavenderblush;
   color: hotpink;
@@ -63,6 +63,7 @@ input {
   text-align : center;
   padding: 50px;
   font-size: 35px;
+  font-weight: bold;
 }
 
 #greenUV {
@@ -88,4 +89,8 @@ input {
 #purpleUV {
   border: 20px solid #7031a1;
   color: #7031a1;
+}
+
+.latestHour {
+  font-size: .8125em;
 }

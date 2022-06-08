@@ -1,29 +1,32 @@
 import AreaInput from '../components/AreaInput';
 import PSI from '../components/PSI';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import UVI from '../components/UVI';
-import App from '../App';
 import FourDayWeather from '../components/FourDayWeather';
 import TwoHourWeather from '../components/TwoHourWeather';
+import TwentyFourHourForecast from '../components/TwentyFourHourForecast';
 
 const WeatherContainer = () => {
 
-    const [area, setArea] = useState('');
-    const [region, setRegion] = useState('');
+    const [weather, setWeather] = useState({
+        value: '',
+        region: '',
+    })
 
-    const userRegion = (userInput) => {
-        setRegion(userInput)
-    }
-
-    const userArea = (userInput) => {
-        setArea(userInput)
-    }
+    useEffect(() => {
+        console.log("Area:", weather.value);
+        console.log("Region:", weather.region);
+    })
 
     return (<>
-        <App userRegion={userRegion} userArea={userArea} />
-        <TwoHourWeather area={area} />
-        <FourDayWeather region={region} />
-        <PSI region={region} />
+        <AreaInput result={{
+            weather: weather,
+            setWeather: setWeather
+        }} />
+        <TwoHourWeather area={weather.value} />
+        <TwentyFourHourForecast region={weather.region} />
+        <FourDayWeather />
+        <PSI region={weather.region} />
         <UVI />
     </>)
 }
