@@ -1,4 +1,4 @@
-body {
+/* body {
   font-family: sans-serif;
 }
 input {
@@ -27,7 +27,7 @@ input {
 .suggestions li {
   padding: 10px;
 }
-/* .suggestion-active, */
+.suggestion-active
 .suggestions li:hover {
   background-color: lavenderblush;
   color: hotpink;
