@@ -1,4 +1,4 @@
-import React from "react";
+/* import React from "react";
 import AreaInput from "./components/AreaInput";
 import "./App.css";
 import Region from "./components/Region";
@@ -68,4 +68,4 @@ handleChange();
   );
 };
 
-export default App;
+export default App; */
