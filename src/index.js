@@ -6,10 +6,12 @@ import reportWebVitals from './reportWebVitals';
 import UVI from './components/UVI';
 import PSI from './components/PSI';
 import AreaInput from './components/AreaInput';
+import TwentyFourHourForecast from './components/TwentyFourHourForecast';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+    <TwentyFourHourForecast />
     <App />
     <PSI />
     <UVI />
