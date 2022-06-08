@@ -2,7 +2,7 @@ import AreaInput from '../components/AreaInput';
 import PSI from '../components/PSI';
 import { useState, useEffect } from 'react';
 import UVI from '../components/UVI';
-import App from '../App';
+import '../styles/WeatherContainer.css';
 import FourDayWeather from '../components/FourDayWeather';
 import TwoHourWeather from '../components/TwoHourWeather';
 import TwentyFourHourForecast from '../components/TwentyFourHourForecast';
