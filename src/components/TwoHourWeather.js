@@ -3,6 +3,7 @@ import API from "../API";
 import '../styles/TwoHourWeather.css'
 
 const TwoHourWeather = (props) => {
+
     const [weatherIcon, setWeatherIcon] = useState('');
     const [weather, setWeather] = useState([]);
     const [time, setTime] = useState("");
