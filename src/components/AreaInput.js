@@ -1,5 +1,5 @@
 import Select from 'react-select'
-import "../Select.css";
+import "../styles/Select.css";
 
 const options = [
   { value: 'Ang Mo Kio', label: 'Ang Mo Kio', region: 'North' },
@@ -71,7 +71,7 @@ const AreaInput = (props) => {
           options={options}
         />
       </div>
-      {input.weather.value}
+      {/* {input.weather.value} */}
     </>
   );
 };
