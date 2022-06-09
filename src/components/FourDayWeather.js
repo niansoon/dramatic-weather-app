@@ -1,76 +1,78 @@
 import { useState, useEffect } from 'react';
 import dateFormat from 'dateformat';
 import API from '../API';
-import '../styles/FourDayWeather.css'
+import '../styles/FourDayWeather.css';
 
 const FourDayWeather = () => {
 
     const [forecastArray, setForecastArray] = useState([]);
-    const [todayForecast, setTodayForecast] = useState([]);
+    const [threeDayForecast, setThreeDayForecast] = useState([]);
     const [temp, setTemp] = useState({});
     const [time, setTime] = useState(''); //for checking only
 
-    const date = new Date();
-
-    const getWeather = async () => {
-        const { status, data } = await API.get('/environment/4-day-weather-forecast', date);
+    const getFourDayWeather = async () => {
+        const { status, data } = await API.get('/environment/4-day-weather-forecast');
         const forecastArray = data.items[0].forecasts;
-        const todayForecast = data.items[0].forecasts[0].forecast;
+        const threeDayForecast = data.items[0].forecasts[0].forecast;
         const temperature = data.items[0].forecasts[0].temperature;
         const timestamp = data.items[0].update_timestamp;
         if (status === 200) {
-            setForecastArray(forecastArray)
-            setTodayForecast(todayForecast);
+            setForecastArray(forecastArray);
+            setThreeDayForecast(threeDayForecast);
             setTemp(temperature);
             setTime(timestamp);
         }
     }
-    
-    const forecastList = forecastArray.map((f, i) => {
-        if (i > 0) {
-            return (<div className='four-day-list'>
-                {f.date}
-                <br />
-                {f.temperature.low}°C - {f.temperature.high}°C
-                <br />
-                {f.forecast}
-                <br />
-            </div>)
-        }; 
-    })
 
-    var weatherIcon; 
-    switch(true) {
-        case (todayForecast.includes("thundery showers")):
-            weatherIcon = "thunderstorm";
+    var weatherIcon;
+    switch (true) {
+        case threeDayForecast.includes("thundery"):
+            weatherIcon = "thunderstorm-4d";
             break;
-        case (todayForecast.includes("fair")):
-            weatherIcon = "sunny";
+        case threeDayForecast.includes("fair"):
+            weatherIcon = "sunny-4d";
             break;
-        default:
-            weatherIcon = '';
+        case threeDayForecast.includes("cloudy" || "partly cloudy"):
+            weatherIcon = 'cloudy-4d';
+            break;
+        case threeDayForecast.includes("showers" || "moderate rain"):
+            weatherIcon = 'showers-4d';
+            break;
+        case threeDayForecast.includes("light"):
+            weatherIcon = 'light-rain-4d';
             break;
     }
 
+    const forecastList = forecastArray.map((f, i) => {
+        if (i < 3) {
+            return (
+                <div className='four-day-list'>
+                    <div id='date'>
+                        {dateFormat(f.date, "dd mmm")}
+                    </div>
+                    <div className='temp-weather'>
+                        <div>
+                            {f.temperature.low}°<br/>
+                            {f.temperature.high}°
+                        </div>
+                        <div className='weather-icon' id={weatherIcon}></div>
+                    </div>
+                    <div className='forecast'>
+                        {f.forecast}
+                    </div>
+                </div>)
+        };
+    })
+
     useEffect(() => {
-        getWeather();
-        console.log("useEffect has been called") //for checking only
+        getFourDayWeather();
     }, [time]);
 
-    return (
+    return (<>
         <div className='four-day-container'>
-            <h2>4-Day Weather Forecast</h2>
-            <div className='subheader'>As of {dateFormat(time, "dddd, dS mmmm yyyy, h:MM TT")}</div>
-            <h3>Today's temperature</h3>
-            {temp.low}°C - {temp.high}°C
-            <br />
-            <h3>Today's forecast</h3>
-            <div className='weather-icon' id={weatherIcon}></div>
-            {todayForecast}
-            <h3>Forecast for the next 3 days</h3>
             {forecastList}
         </div>
-    );
+    </>);
 
 }
 

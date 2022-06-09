@@ -1,51 +1,48 @@
 import { useState, useEffect } from 'react';
-import dateFormat from 'dateformat';
 import API from '../API';
 import '../styles/PSI.css';
 
 const PSI = (props) => {
 
     const [index, setIndex] = useState({});
-    const [time, setTime] = useState(''); //for checking only
     const [region, setRegion] = useState('');
 
     const getPSI = async () => {
         const { status, data } = await API.get('/environment/psi');
         const readings = data.items[0].readings.psi_twenty_four_hourly;
-        const timestamp = data.items[0].timestamp;
         if (status === 200) {
             setIndex(readings);
-            setTime(timestamp)
         }
     }
 
     useEffect(() => {
         getPSI();
-        setRegion(props.region);
-        console.log("useEffect has been called") //for checking only
+        setRegion(props.region ? props.region : 'national')
     }, [props.region]);
 
     var alertLevel;
     var airQuality;
+    var currentIndex = index[region];
+
     switch (true) {
-        case (index[region] <= 50):
-            alertLevel = "green";
+        case (currentIndex <= 50):
+            alertLevel = "greenPSI";
             airQuality = "Good";
             break;
-        case (51 <= index[region] <= 100):
-            alertLevel = "blue";
+        case (51 <= currentIndex <= 100):
+            alertLevel = "bluePSI";
             airQuality = "Moderate";
             break;
-        case (101 <= index[region] <= 200):
-            alertLevel = "yellow";
+        case (101 <= currentIndex <= 200):
+            alertLevel = "yellowPSI";
             airQuality = "Unhealthy";
             break;
-        case (201 <= index[region] <= 300):
-            alertLevel = "orange";
+        case (201 <= currentIndex <= 300):
+            alertLevel = "orangePSI";
             airQuality = "Very Unhealthy";
             break;
-        case (300 <= index[region]):
-            alertLevel = "red";
+        case (300 <= currentIndex):
+            alertLevel = "redPSI";
             airQuality = "Hazardous";
             break;
         default:
@@ -53,61 +50,54 @@ const PSI = (props) => {
             break;
     }
 
-    return (<>
-        <h2>PSI index</h2>
-        <div className='subheader'>As of {dateFormat(time, "dddd, dS mmmm yyyy, h:MM TT")}</div>
-        <ul>
-            <li>National: {index.national}</li>
-            <li>North: {index.north}</li>
-            <li>South: {index.south}</li>
-            <li>East: {index.east}</li>
-            <li>West: {index.west}</li>
-            <li>Central: {index.central}</li>
-        </ul>
-        <div className='psi-container' id={alertLevel}>
-            <div id='region'>
-                {region.toUpperCase()}
+    return (
+        <div className='psi-container'>
+            <div className='left'>
+                <div id='region'>
+                    {region.toUpperCase()}
+                </div>
+                <div className='psi-circle' id={alertLevel}>
+                    {currentIndex}
+                </div>
+                <h3 className='air-quality'>
+                    {airQuality}
+                </h3>
             </div>
-            <div className='psi-index' id='psi-index'>
-                {index[region]}
-            </div>
-            <div>
-                {airQuality}
+            <div className='right'>
+                <h2>PSI</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>PSI</th>
+                            <th>Air Quality</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>0 - 50</td>
+                            <td>Good</td>
+                        </tr>
+                        <tr>
+                            <td>51 - 100</td>
+                            <td>Moderate</td>
+                        </tr>
+                        <tr>
+                            <td>101 - 200</td>
+                            <td>Unhealthy</td>
+                        </tr>
+                        <tr>
+                            <td>201-300</td>
+                            <td>V. Unhealthy</td>
+                        </tr>
+                        <tr>
+                            <td>Above 300</td>
+                            <td>Hazardous</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
-        <div>
-            <table>
-                <thead>
-                    <tr>
-                        <th>PSI</th>
-                        <th>Air Quality</th>
-                    </tr>
-                </thead>   
-                <tbody>
-                    <tr>
-                        <td>0 - 50</td>
-                        <td>Good</td>
-                    </tr>
-                    <tr>
-                        <td>51 - 100</td>
-                        <td>Moderate</td>
-                    </tr>
-                    <tr>
-                        <td>101 - 200</td>
-                        <td>Unhealthy</td>
-                    </tr>
-                    <tr>
-                        <td>201-300</td>
-                        <td>Very Unhealthy</td>
-                    </tr>
-                    <tr>
-                        <td>Above 300</td>
-                        <td>Hazardous</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </>)
+    )
 
 }
 

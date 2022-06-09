@@ -1,10 +1,10 @@
-.four-day-container {
+.container-24hr {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     column-gap: 15px;
 }
 
-.four-day-list {
+.weather-list-24hr {
     width: 166px;
     height: 205px;
     padding: 10px 15px;
@@ -13,50 +13,40 @@
     border-radius: 20px;
 }
 
-.four-day-list #date {
+.weather-list-24hr .timing {
     color: #EBA440;
     font-size: 15px;
     line-height: 22px;
+    text-align: left;
 }
 
-.four-day-list .temp-weather {
-    display: flex;
-    justify-content: space-between;
-    font-weight: 600;
-    font-size: 24px;
-    line-height: 36px;
-    padding: 7px 0px
-}
-
-.four-day-list .forecast {
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 21px;
-}
-
-.four-day-list .weather-icon {
-    width: 80px;
-    height: 80px;
+.weather-icon-24hr {
+    width: 100px;
+    height: 100px;
     background-size: contain;
     background-repeat: no-repeat;
 }
 
-#thunderstorm-4d {
+.weather-list-24hr .forecast {
+    text-align: center;
+}
+
+.thunderstorm-24hr{
     background-image: url('../assets/images/Thunderstorm.png');
 }
 
-#sunny-4d {
+.sunny-24hr {
     background-image: url('../assets/images/Sunny.png');
 }
 
-#cloudy-4d {
+.cloudy-24hr {
     background-image: url('../assets/images/Cloudy.png');
 }
 
-#showers-4d {
+.showers-24hr {
     background-image: url('../assets/images/Heavy_Rain.png');
 }
 
-#light-rain-4d {
+.light-rain-24hr {
     background-image: url('../assets/images/Light_Rain.png');
 }

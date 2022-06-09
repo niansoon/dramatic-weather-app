@@ -1,11 +1,48 @@
+.weather-container-2hr {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    padding-left: 10px;
+}
+
+.weather-container-2hr #left {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+}
+
+.weather-container-2hr .temp-container {
+    position: absolute;
+    top: 110px;
+}
+
+.weather-container-2hr .temp {
+    font-weight: 600;
+    font-size: 55px;
+    line-height: 82px;
+    padding: 7px 0px;
+}
+
+.weather-container-2hr #right {
+    margin-left: -50px;
+    margin-top: 30px;
+    text-align: right;
+}
+
+.weather-container-2hr #right #current-weather {
+    margin-top: -20px;
+    text-align: center;
+}
+
 .weather-icon-2hr {
-    width: 100px;
-    height: 100px;
+    width: 250px;
+    height: 250px;
+    margin-top: -20px;
     background-size: contain;
     background-repeat: no-repeat;
 }
 
-#thunderstorm-2hr{
+#thunderstorm-2hr {
     background-image: url('../assets/images/Thunderstorm.png');
 }
 

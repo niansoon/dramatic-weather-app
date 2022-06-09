@@ -1,103 +1,112 @@
 import React, { useEffect, useState } from "react";
-import dateFormat from "dateformat";
 import API from "../API";
-
-const now = new Date();
+import '../styles/TwentyFourHourWeather.css';
 
 const TwentyFourHourForecast = (props) => {
 
-    const result = props.region;
-    const [forecast, setForecast] = useState('');
-    const [time, setTime] = useState([]);
-    
-    const currentWeather = async () => {
+    const [twentyFourHourArray, setTwentyFourHourArray] = useState([]);
+    const [firstForecast, setFirstForecast] = useState({});
+    const [secondForecast, setSecondForecast] = useState({});
+    const [thirdForecast, setThirdForecast] = useState({});
+    const [region, setRegion] = useState('');
+
+    const getTwentyFourHourWeather = async () => {
         const { status, data } = await API.get('/environment/24-hour-weather-forecast');
-        const apiForecast = data.items[0].periods[0].regions;
-        const apiTimestamp = data.items[0].timestamp;
-
+        const twentyFourHourArray = data.items[0].periods;
+        const firstForecast = data.items[0].periods[0].regions;
+        const secondForecast = data.items[0].periods[1].regions;
+        const thirdForecast = data.items[0].periods[2].regions;
         if (status === 200) {
-            switch(result){
-                case "north":
-                setForecast(apiForecast.north);
-                break;
-
-                case "south":
-                setForecast(apiForecast.south);
-                break;
-
-                case "east":
-                setForecast(apiForecast.east);
-                break;
-
-                case "west":
-                setForecast(apiForecast.west);
-
-                case "central":
-                setForecast(apiForecast.central);
-                break;
-            }
-            setTime(apiTimestamp);
-            return status;
+            setTwentyFourHourArray(twentyFourHourArray);
+            setFirstForecast(firstForecast);
+            setSecondForecast(secondForecast);
+            setThirdForecast(thirdForecast);
         }
-        
-        
     }
 
+    var weatherIcon;
+    const forecastArray = twentyFourHourArray.map(i => { return i.regions[region] });
+    const iconArray = forecastArray.map(i => {
+        switch (true) {
+            case i.includes("Thundery"):
+                weatherIcon = "thunderstorm-24hr";
+                break;
+            case i.includes("Fair"):
+                weatherIcon = "sunny-24hr";
+                break;
+            case i.includes("Cloudy" || "Partly Cloudy"):
+                weatherIcon = 'cloudy-24hr';
+                break;
+            case i.includes("Showers" || "Moderate Rain"):
+                weatherIcon = 'showers-24hr';
+                break;
+            case i.includes("Light"):
+                weatherIcon = 'light-rain-24hr';
+                break;
+            default:
+                weatherIcon = '';
+                break;
+        }
+        return weatherIcon
+    })
+
+    var timing;
+    const timingArray = twentyFourHourArray.map(i => { return i.time.start });
+    const dailyArray = timingArray.map(i => {
+        switch (true) {
+            case (i[12] === '8'):
+                timing = 'Night';
+                break;
+            case (i[12] === '6'):
+                timing = 'Morning';
+                break; 
+            case (i[12] === '2'):
+                timing = 'Afternoon';
+                break;
+            default:
+                timing = 'Default';
+                break;
+        }
+        return timing;
+    })
 
 
     useEffect(() => {
-        currentWeather();
-        console.log("Region and Forecast:", result, forecast);
-    }, [result]);
+        getTwentyFourHourWeather();
+        setRegion(props.region ? props.region : 'central')
+    }, [props.region]);
 
-
-        return (
-            <>
-            <h3>24-Hour Weather Forecast</h3>
-            <h3>Morning</h3>
-            {result}
-            <br></br>
-            {forecast}
-            {/* <div>{dateFormat(now, "dddd, mmmm dS yyyy, h:MM:ss TT")}</div>
-            <ul>
-            <h4>North Region</h4>
-                {forecast.map((o) => {
-                    return <li>{dateFormat(o.time.start, "h:MM TT")} to {dateFormat(o.time.end, "h:MM TT")} {o.regions.north}
-                    </li>
-                })}
-            </ul>
-            <ul>
-            <h4>South Region</h4>
-                {forecast.map((o) => {
-                    return <li>{dateFormat(o.time.start, "h:MM TT")} to {dateFormat(o.time.end, "h:MM TT")} {o.regions.south}
-                    </li>
-                })}
-            </ul>
-            <ul>
-            <h4>Central Region</h4>
-                {forecast.map((o) => {
-                    return <li>{dateFormat(o.time.start, "h:MM TT")} to {dateFormat(o.time.end, "h:MM TT")} {o.regions.central}
-                    </li>
-                })}
-            </ul>
-            <ul>
-            <h4>East Region</h4>
-                {forecast.map((o) => {
-                    return <li>{dateFormat(o.time.start, "h:MM TT")} to {dateFormat(o.time.end, "h:MM TT")} {o.regions.east}
-                    </li>
-                })}
-            </ul>
-            <ul>
-            <h4>West Region</h4>
-                {forecast.map((o) => {
-                    return <li>{dateFormat(o.time.start, "h:MM TT")} to {dateFormat(o.time.end, "h:MM TT")} {o.regions.west}
-                    </li>
-                })}
-            </ul> */}
-            </>
-        );
-    
-
-}
+    return (
+        <div className="container-24hr">
+            <div className="weather-list-24hr">
+                <div className='timing'>{dailyArray[0]}</div>
+                <div style={{ display: 'flex', justifyContent: 'center' }}>
+                    <div className={`weather-icon-24hr ${iconArray[0]}`}></div>
+                </div>
+                <div className='forecast'>
+                    {firstForecast[region]}
+                </div>
+            </div>
+            <div className="weather-list-24hr">
+                <div className='timing'>{dailyArray[1]}</div>
+                <div style={{ display: 'flex', justifyContent: 'center' }}>
+                    <div className={`weather-icon-24hr ${iconArray[1]}`}></div>
+                </div>
+                <div className='forecast'>
+                    {secondForecast[region]}
+                </div>
+            </div>
+            <div className="weather-list-24hr">
+                <div className='timing'>{dailyArray[2]}</div>
+                <div style={{ display: 'flex', justifyContent: 'center' }}>
+                    <div className={`weather-icon-24hr ${iconArray[2]}`}></div>
+                </div>
+                <div className='forecast'>
+                    {thirdForecast[region]}
+                </div>
+            </div>
+        </div>
+    );
+};
 
 export default TwentyFourHourForecast;
