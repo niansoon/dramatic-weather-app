@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "../styles/UVI.css";
-import dateFormat from "dateformat";
 
 const UVIndex = axios.create({ baseURL: "https://api.data.gov.sg" });
 
@@ -9,7 +8,6 @@ const UVI = () => {
     const [display, setDisplay] = useState("");
     const [colour, setColour] = useState("");
     const [status, setStatus] = useState("");
-    const [time, setTime] = useState("");
 
     let styles = "";
 
@@ -19,7 +17,6 @@ const UVI = () => {
         const { status, data } = await UVIndex.get("v1/environment/uv-index");
         if (status === 200) {
             setDisplay(data.items[0].index[0].value);
-            setTime(data.items[0].index[0].timestamp);
             return status;
         }
     };

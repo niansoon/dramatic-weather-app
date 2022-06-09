@@ -32,21 +32,20 @@ h3 {
     font-size: 24px;
 }
 
-/* div {
-    border: solid 1px white;
-} */
-
 .today-weather,
-.next-three-days-weather,
 .uvi,
 .psi {
-    background: linear-gradient(180deg, rgba(100, 104, 162, 0.3) 0%, rgba(28, 28, 65, 0.3) 100%);
+    background: linear-gradient(145deg, rgba(100, 104, 162, 0.3) 0%, rgba(28, 28, 65, 0.3) 100%);
     box-shadow: 5px 5px 4px rgba(0, 0, 0, 0.5);
     border-radius: 20px;
 }
 
 .search-bar {
     margin: 20px 0px;
+    width: 530px;
+}
+
+.select {
     width: 530px;
 }
 
@@ -66,11 +65,11 @@ h3 {
 }
 
 .twenty-four-hr-weather {
-
+    max-height: 200px;
 }
 
 .next-three-days-weather {
-
+    max-height: 200px;
 }
 
 .nav-bar {
@@ -79,16 +78,28 @@ h3 {
     align-items: center;
 }
 
-.nav-bar a {
-    text-decoration: none;
+.nav-bar button {
+    background-color: transparent;
+    outline: none;
+    border: none;
     color: #EBA440;
     font-weight: 600;
     font-size: 20px;
     padding: 10px 70px 10px 10px;
+    margin-top: 7px;
+    transition-duration: 0.5s;
 }
 
-.nav-bar a:active {
+.nav-bar button:hover {
+    font-size: 21px;
+}
+
+#show {
     text-decoration: underline;
+}
+
+#hide {
+    font-style: none;
 }
 
 .uvi-psi-container {
@@ -99,12 +110,6 @@ h3 {
     margin-left: 7px;
 }
 
-.uvi {
-}
-
-.psi {
-}
-
 table {
     width: 100%;
     font-size: 12px;
@@ -112,10 +117,10 @@ table {
 }
 
 th {
-    font-weight:700;
+    font-weight: 700;
 }
 
 td:nth-child(2),
-th:nth-child(2)  { 
-    text-align: right; 
+th:nth-child(2) {
+    text-align: right;
 }

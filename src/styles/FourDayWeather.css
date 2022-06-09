@@ -8,13 +8,37 @@
 
 .four-day-list {
     width: 166px;
-    height: 200px;
-    padding: 10px 0px;
+    height: 206px;
+    padding: 10px 15px;
+    background: linear-gradient(180deg, rgba(100, 104, 162, 0.3) 0%, rgba(28, 28, 65, 0.3) 100%);
+    box-shadow: 5px 5px 4px rgba(0, 0, 0, 0.5);
+    border-radius: 20px;
 }
 
-.weather-icon {
-    width: 100px;
-    height: 100px;
+.four-day-list #date {
+    color: #EBA440;
+    font-size: 15px;
+    line-height: 22px;
+}
+
+.four-day-list .temp-weather {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 36px;
+    padding: 7px 0px
+}
+
+.four-day-list .forecast {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+}
+
+.four-day-list .weather-icon {
+    width: 80px;
+    height: 80px;
     background-size: contain;
     background-repeat: no-repeat;
 }
@@ -25,4 +49,16 @@
 
 #sunny-4d {
     background-image: url('../assets/images/Sunny.png');
+}
+
+#cloudy-4d {
+    background-image: url('../assets/images/Cloudy.png');
+}
+
+#showers-4d {
+    background-image: url('../assets/images/Heavy_Rain.png');
+}
+
+#light-rain-4d {
+    background-image: url('../assets/images/Light_Rain.png');
 }

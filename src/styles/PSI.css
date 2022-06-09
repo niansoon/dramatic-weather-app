@@ -18,36 +18,34 @@ ul {
     align-items: center;
 }
 
-.psi-circle {
-    margin: 50px 10px 0px 10px;
-    height: 170px;
-    width: 170px;
-    border-radius: 50%;
-    padding: 20px;
-    display: block;
+.psi-container .left {
+    margin: 30px 10px 0px 10px;
     text-align: center;
-    font-family: 'Poppins', 'sans-serif';
 }
 
-.psi-right-column {
+.psi-circle {
+    margin: 10px 0px;
+    height: 160px;
+    width: 160px;
+    line-height: 160px;
+    border-radius: 50%;
+    display: block;
     text-align: center;
-    margin: 7px;
+    font-weight: 700;
+    font-size: 55px;
+}
+
+.psi-container .right {
+    text-align: center;
+    margin: -20px 7px 7px 7px;
 }
 
 #region {
     font-weight: bold;
 }
 
-#psi-index {
-    font-weight: 700;
-    font-size: 55px;
-    color: whitesmoke;
-}
-
-#air-quality {
-    font-weight: 700;
-    font-size: 24px;
-    line-height: 36px;
+.air-quality {
+    margin-top: -5px; 
 }
 
 #greenPSI {

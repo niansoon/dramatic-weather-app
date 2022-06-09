@@ -6,16 +6,13 @@ import '../styles/PSI.css';
 const PSI = (props) => {
 
     const [index, setIndex] = useState({});
-    const [time, setTime] = useState(''); //for checking only
     const [region, setRegion] = useState('');
 
     const getPSI = async () => {
         const { status, data } = await API.get('/environment/psi');
         const readings = data.items[0].readings.psi_twenty_four_hourly;
-        const timestamp = data.items[0].timestamp;
         if (status === 200) {
             setIndex(readings);
-            setTime(timestamp)
         }
     }
 
@@ -56,18 +53,18 @@ const PSI = (props) => {
 
     return (
         <div className='psi-container'>
-            <div className='psi-circle' id={alertLevel}>
+            <div className='left'>
                 <div id='region'>
                     {region.toUpperCase()}
                 </div>
-                <div id='psi-index'>
+                <div className='psi-circle' id={alertLevel}>
                     {index[region]}
                 </div>
-                <div>
+                <h3 className='air-quality'>
                     {airQuality}
-                </div>
+                </h3>
             </div>
-            <div className='psi-right-column'>
+            <div className='right'>
                 <h2>PSI</h2>
                 <table>
                     <thead>

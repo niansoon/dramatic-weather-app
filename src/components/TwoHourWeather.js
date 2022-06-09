@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import dateFormat from "dateformat";
 import API from "../API";
-import '../styles/TwoHourWeather.css'
+import '../styles/TwoHourWeather.css';
 
 const TwoHourWeather = (props) => {
 
@@ -39,20 +39,22 @@ const TwoHourWeather = (props) => {
         console.log("weather", weather);
         console.log("weather-icon", weatherIcon);
 
+        const stringWeather = currentWeather.join();
+
         switch (true) {
-            case currentWeather.includes("Thundery Showers"):
+            case stringWeather.includes("Thundery"):
                 setWeatherIcon('thunderstorm-2hr');
                 break;
-            case currentWeather.includes("Fair"):
+            case stringWeather.includes("Fair"):
                 setWeatherIcon('sunny-2hr');
                 break;
-            case currentWeather.includes("Cloudy" || "Partly Cloudy (Day)"):
+            case stringWeather.includes("Cloudy" || "Partly Cloudy"):
                 setWeatherIcon('cloudy-2hr');
                 break;
-            case currentWeather.includes("Showers" && "Moderate Rain"):
+            case stringWeather.includes("Showers" || "Moderate Rain"):
                 setWeatherIcon('showers-2hr');
                 break;
-            case currentWeather.includes("Light Rain"):
+            case stringWeather.includes("Light"):
                 setWeatherIcon('light-rain-2hr');
                 break;
         }

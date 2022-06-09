@@ -1,5 +1,4 @@
 import Select from 'react-select'
-import "../styles/Select.css";
 
 const options = [
   { value: 'Ang Mo Kio', label: 'Ang Mo Kio', region: 'north' },
@@ -55,7 +54,7 @@ const customStyles = {
   option: (styles) => ({
     ...styles,
     cursor: 'pointer',
-    //color: 'pink'
+    backgroundColor: '#1C1C41'
   })
 }
 const AreaInput = (props) => {
@@ -71,7 +70,6 @@ const AreaInput = (props) => {
           options={options}
         />
       </div>
-      {/* {input.weather.value} */}
     </>
   );
 };

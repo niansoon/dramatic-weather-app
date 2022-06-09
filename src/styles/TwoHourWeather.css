@@ -1,6 +1,6 @@
 .weather-container-2hr {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 2fr 1fr;
     padding-left: 10px;
 }
 
@@ -18,18 +18,20 @@
 }
 
 .weather-container-2hr #right {
-    margin: 30px 0px;
+    margin-left: -50px;
+    margin-top: 30px;
     text-align: right;
 }
 
 .weather-container-2hr #right #current-weather {
-    margin-top: -40px;
+    margin-top: -20px;
     text-align: center;
 }
 
 .weather-icon-2hr {
     width: 250px;
     height: 250px;
+    margin-top: -20px;
     background-size: contain;
     background-repeat: no-repeat;
 }
