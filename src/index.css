@@ -1,13 +1,121 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins');
+
+* {
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    margin: 0 auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background: #1C1C41;
+    color: #FFFFFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+        monospace;
+}
+
+h2 {
+    font-weight: 600;
+    font-size: 32px;
+    font-weight: 700;
+    color: #EBA440;
+}
+
+h3 {
+    font-size: 24px;
+}
+
+/* div {
+    border: solid 1px white;
+} */
+
+.today-weather,
+.next-three-days-weather,
+.uvi,
+.psi {
+    background: linear-gradient(180deg, rgba(100, 104, 162, 0.3) 0%, rgba(28, 28, 65, 0.3) 100%);
+    box-shadow: 5px 5px 4px rgba(0, 0, 0, 0.5);
+    border-radius: 20px;
+}
+
+.search-bar {
+    margin: 20px 0px;
+    width: 530px;
+}
+
+.app-container {
+    display: flex;
+    margin-top: -20px;
+}
+
+.weather-container {
+    width: 530px;
+    margin: 12px;
+}
+
+.today-weather {
+    padding: 0px 20px;
+    height: 360px;
+}
+
+.twenty-four-hr-weather {
+
+}
+
+.next-three-days-weather {
+
+}
+
+.nav-bar {
+    height: 50px;
+    display: flex;
+    align-items: center;
+}
+
+.nav-bar a {
+    text-decoration: none;
+    color: #EBA440;
+    font-weight: 600;
+    font-size: 20px;
+    padding: 10px 70px 10px 10px;
+}
+
+.nav-bar a:active {
+    text-decoration: underline;
+}
+
+.uvi-psi-container {
+    display: grid;
+    grid-template-rows: repeat(2, 300px);
+    row-gap: 15px;
+    padding: 90px 0px 0px 0px;
+    margin-left: 7px;
+}
+
+.uvi {
+}
+
+.psi {
+}
+
+table {
+    width: 100%;
+    font-size: 12px;
+    text-align: left;
+}
+
+th {
+    font-weight:700;
+}
+
+td:nth-child(2),
+th:nth-child(2)  { 
+    text-align: right; 
 }

@@ -35,6 +35,10 @@ const TwentyFourHourForecast = (props) => {
                 case "central":
                 setForecast(apiForecast.central);
                 break;
+
+                default:
+                    setForecast(apiForecast.central);
+                    break;
             }
             setTime(apiTimestamp);
             return status;

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import dateFormat from 'dateformat';
 import API from '../API';
-import '../styles/FourDayWeather.css'
+import '../styles/FourDayWeather.css';
 
 const FourDayWeather = () => {
 
@@ -25,7 +25,7 @@ const FourDayWeather = () => {
             setTime(timestamp);
         }
     }
-    
+
     const forecastList = forecastArray.map((f, i) => {
         if (i > 0) {
             return (<div className='four-day-list'>
@@ -36,16 +36,16 @@ const FourDayWeather = () => {
                 {f.forecast}
                 <br />
             </div>)
-        }; 
+        };
     })
 
-    var weatherIcon; 
-    switch(true) {
+    var weatherIcon;
+    switch (true) {
         case (todayForecast.includes("thundery showers")):
-            weatherIcon = "thunderstorm";
+            weatherIcon = "thunderstorm-4d";
             break;
         case (todayForecast.includes("fair")):
-            weatherIcon = "sunny";
+            weatherIcon = "sunny-4d";
             break;
         default:
             weatherIcon = '';
@@ -54,23 +54,22 @@ const FourDayWeather = () => {
 
     useEffect(() => {
         getWeather();
-        console.log("useEffect has been called") //for checking only
     }, [time]);
 
-    return (
+    return (<>
+        <h3>Forecast for the next 3 days</h3>
         <div className='four-day-container'>
-            <h2>4-Day Weather Forecast</h2>
+            {/* <h2>4-Day Weather Forecast</h2>
             <div className='subheader'>As of {dateFormat(time, "dddd, dS mmmm yyyy, h:MM TT")}</div>
             <h3>Today's temperature</h3>
             {temp.low}°C - {temp.high}°C
             <br />
             <h3>Today's forecast</h3>
             <div className='weather-icon' id={weatherIcon}></div>
-            {todayForecast}
-            <h3>Forecast for the next 3 days</h3>
+            {todayForecast} */}
             {forecastList}
         </div>
-    );
+    </>);
 
 }
 

@@ -1,11 +1,14 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins');
 
 .four-day-container {
-    font-style: 'Poppins';
-    margin: 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 7px;
 }
 
 .four-day-list {
+    width: 166px;
+    height: 200px;
     padding: 10px 0px;
 }
 
@@ -16,12 +19,10 @@
     background-repeat: no-repeat;
 }
 
-#thunderstorm {
+#thunderstorm-4d {
     background-image: url('../assets/images/Thunderstorm.png');
 }
 
-#sunny {
+#sunny-4d {
     background-image: url('../assets/images/Sunny.png');
 }
-
-
