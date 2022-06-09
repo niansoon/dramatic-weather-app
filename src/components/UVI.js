@@ -44,8 +44,8 @@ const UVI = () => {
     useEffect(() => {
         listUV();
         handleColour();
-        console.log("UV", display);
-        console.log("colour", colour);
+/*         console.log("UV", display);
+        console.log("colour", colour); */
     }, [handleColour]);
 
     return (
@@ -66,23 +66,23 @@ const UVI = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        <tr class="uvIndexGreen">
+                        <tr className="uvIndexGreen">
                             <td >0 - 2</td>
                             <td>Low</td>
                         </tr>
-                        <tr class="uvIndexYellow">
+                        <tr className="uvIndexYellow">
                             <td >3 - 5</td>
                             <td>Moderate</td>
                         </tr>
-                        <tr class="uvIndexOrange">
+                        <tr className="uvIndexOrange">
                             <td >6 - 7</td>
                             <td>High</td>
                         </tr>
-                        <tr class="uvIndexRed">
+                        <tr className="uvIndexRed">
                             <td>8 - 10</td>
                             <td>Very High</td>
                         </tr>
-                        <tr class="uvIndexPurple">
+                        <tr className="uvIndexPurple">
                             <td >Above 11</td>
                             <td>Extreme</td>
                         </tr>

@@ -73,23 +73,23 @@ const PSI = (props) => {
                         </tr>
                     </thead>
                     <tbody>
-                        <tr class="greenLabel">
+                        <tr className="greenLabel">
                             <td>0 - 50</td>
                             <td>Good</td>
                         </tr>
-                        <tr class="blueLabel">
+                        <tr className="blueLabel">
                             <td>51 - 100</td>
                             <td>Moderate</td>
                         </tr>
-                        <tr class="yellowLabel">
+                        <tr className="yellowLabel">
                             <td>101 - 200</td>
                             <td>Unhealthy</td>
                         </tr>
-                        <tr class="orangeLabel">
+                        <tr className="orangeLabel">
                             <td>201-300</td>
                             <td>V. Unhealthy</td>
                         </tr>
-                        <tr class="redLabel">
+                        <tr className="redLabel">
                             <td>Above 300</td>
                             <td>Hazardous</td>
                         </tr>

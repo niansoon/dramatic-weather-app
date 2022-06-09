@@ -34,10 +34,11 @@ const TwoHourWeather = (props) => {
     const currentWeather = weather.filter((f) => f.area === userArea).map(filtered => filtered.forecast);
     console.log('LOOK AT ME', weather)
 
+
+
     useEffect(() => {
         getWeather();
         getTemperature();
-
         const stringWeather = currentWeather.join();
 
         switch (true) {
@@ -57,7 +58,7 @@ const TwoHourWeather = (props) => {
                 setWeatherIcon('light-rain-2hr');
                 break;
         }
-    }, [userArea, time]);
+    }, [userArea]);
 
     return (
 
@@ -73,7 +74,7 @@ const TwoHourWeather = (props) => {
             </div>
             <div id="right">
                 Last updated at <br />{dateFormat(time, "h:MM TT")}
-                <div className='weather-icon-2hr' id={weatherIcon}></div>
+                <div className="weather-icon-2hr" id={weatherIcon}></div>
                 <h3 id="current-weather">{currentWeather}</h3>
             </div>
 
