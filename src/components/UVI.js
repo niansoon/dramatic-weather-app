@@ -66,24 +66,24 @@ const UVI = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>0 - 2</td>
+                        <tr class="uvIndexGreen">
+                            <td >0 - 2</td>
                             <td>Low</td>
                         </tr>
-                        <tr>
-                            <td>3 - 5</td>
+                        <tr class="uvIndexYellow">
+                            <td >3 - 5</td>
                             <td>Moderate</td>
                         </tr>
-                        <tr>
-                            <td>6 - 7</td>
+                        <tr class="uvIndexOrange">
+                            <td >6 - 7</td>
                             <td>High</td>
                         </tr>
-                        <tr>
+                        <tr class="uvIndexRed">
                             <td>8 - 10</td>
                             <td>Very High</td>
                         </tr>
-                        <tr>
-                            <td>Above 11</td>
+                        <tr class="uvIndexPurple">
+                            <td >Above 11</td>
                             <td>Extreme</td>
                         </tr>
                     </tbody>

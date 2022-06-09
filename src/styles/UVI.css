@@ -53,3 +53,23 @@
     border: 20px solid #7031a1;
     color: #7031a1;
 }
+
+.uvIndexGreen {
+    color: #579c00; 
+}
+
+.uvIndexYellow {
+    color: rgb(248, 206, 9);
+}
+
+.uvIndexOrange {
+    color: #ff8400; 
+}
+
+.uvIndexRed {
+    color: #d80000; 
+}
+
+.uvIndexPurple {
+    color: #7031a1; 
+}
