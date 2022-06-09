@@ -37,7 +37,9 @@ const TwoHourWeather = (props) => {
     useEffect(() => {
         getWeather();
         getTemperature();
+
         const stringWeather = currentWeather.join();
+
         switch (true) {
             case stringWeather.includes("Thundery"):
                 setWeatherIcon('thunderstorm-2hr');
@@ -58,6 +60,7 @@ const TwoHourWeather = (props) => {
     }, [userArea, time]);
 
     return (
+
         <div className="weather-container-2hr">
             <div id="left">
                 <h2>{userArea}</h2>
@@ -73,6 +76,7 @@ const TwoHourWeather = (props) => {
                 <div className='weather-icon-2hr' id={weatherIcon}></div>
                 <h3 id="current-weather">{currentWeather}</h3>
             </div>
+
         </div>
     );
 };
