@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import dateFormat from 'dateformat';
 import API from '../API';
 import '../styles/PSI.css';
 
@@ -18,7 +17,7 @@ const PSI = (props) => {
 
     useEffect(() => {
         getPSI();
-        setRegion(props.region);
+        setRegion(props.region ? props.region : 'national')
     }, [props.region]);
 
     var alertLevel;
@@ -58,7 +57,7 @@ const PSI = (props) => {
                     {region.toUpperCase()}
                 </div>
                 <div className='psi-circle' id={alertLevel}>
-                    {index[region]}
+                    {currentIndex}
                 </div>
                 <h3 className='air-quality'>
                     {airQuality}

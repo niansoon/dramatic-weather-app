@@ -54,7 +54,12 @@ const customStyles = {
   option: (styles) => ({
     ...styles,
     cursor: 'pointer',
-    backgroundColor: '#1C1C41'
+    background: '#6468A2',
+  }),
+  menuList: base => ({
+    ...base,
+    // to remove the whitespace on first and last option
+    padding: 0
   })
 }
 const AreaInput = (props) => {

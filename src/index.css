@@ -24,7 +24,8 @@ code {
 h2 {
     font-weight: 600;
     font-size: 32px;
-    font-weight: 700;
+    font-weight: 900;
+    line-height: 35px;
     color: #EBA440;
 }
 
@@ -54,7 +55,7 @@ h3 {
     margin-top: -20px;
 }
 
-.weather-container {
+.all-weather-container {
     width: 530px;
     margin: 12px;
 }
@@ -85,14 +86,14 @@ h3 {
     color: #EBA440;
     font-weight: 600;
     font-size: 20px;
-    padding: 10px 70px 10px 10px;
+    padding: 10px 35px 10px 10px;
     margin-top: 7px;
     transition-duration: 0.5s;
 }
 
 .nav-bar button:hover {
-    font-size: 21px;
-}
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #EBA440;}
 
 #show {
     text-decoration: underline;

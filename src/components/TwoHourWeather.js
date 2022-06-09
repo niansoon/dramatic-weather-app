@@ -32,15 +32,12 @@ const TwoHourWeather = (props) => {
 
     const userArea = props.area;
     const currentWeather = weather.filter((f) => f.area === userArea).map(filtered => filtered.forecast);
+    console.log('LOOK AT ME', weather)
 
     useEffect(() => {
         getWeather();
         getTemperature();
-        console.log("weather", weather);
-        console.log("weather-icon", weatherIcon);
-
         const stringWeather = currentWeather.join();
-
         switch (true) {
             case stringWeather.includes("Thundery"):
                 setWeatherIcon('thunderstorm-2hr');
@@ -58,15 +55,13 @@ const TwoHourWeather = (props) => {
                 setWeatherIcon('light-rain-2hr');
                 break;
         }
-
-        console.log("currentWeather", currentWeather);
     }, [userArea, time]);
 
     return (
         <div className="weather-container-2hr">
             <div id="left">
                 <h2>{userArea}</h2>
-                <div>
+                <div className="temp-container">
                     High 
                     <div className="temp">{temp.high}°</div>
                     Low 

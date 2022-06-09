@@ -10,7 +10,7 @@ const WeatherContainer = () => {
 
     const [weather, setWeather] = useState({
         value: 'Singapore',
-        region: 'national', // default before user inputs area
+        region: ''
     })
 
     const [show1, setShow1] = useState(true)
@@ -24,7 +24,6 @@ const WeatherContainer = () => {
         setShow2(true)
     }
 
-
     useEffect(() => {
         console.log("Area:", weather.value);
         console.log("Region:", weather.region);
@@ -33,7 +32,7 @@ const WeatherContainer = () => {
     return (<>
         <h1 style={{ textAlign: 'center' }}>The Dramatic Weather App</h1>
         <div className='app-container'>
-            <div className='weather-container'>
+            <div className='all-weather-container'>
                 <div className='search-bar'>
                     <AreaInput result={{
                         weather: weather,
@@ -44,7 +43,7 @@ const WeatherContainer = () => {
                     <TwoHourWeather area={weather.value} />
                 </div>
                 <div className='nav-bar'>
-                    <button onClick={showToday} id={show1 ? 'show' : 'hide'}>Today</button>
+                    <button onClick={showToday} id={show1 ? 'show' : 'hide'}>Next 24 hours</button>
                     <button onClick={showNextThreeDays} id={show2 ? 'show' : 'hide'}>Next 3 days</button>
                 </div>
                 <div className='twenty-four-hr-weather'>

@@ -8,6 +8,12 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    position: relative;
+}
+
+.weather-container-2hr .temp-container {
+    position: absolute;
+    top: 110px;
 }
 
 .weather-container-2hr .temp {

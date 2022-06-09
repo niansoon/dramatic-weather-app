@@ -10,14 +10,14 @@ const FourDayWeather = () => {
     const [temp, setTemp] = useState({});
     const [time, setTime] = useState(''); //for checking only
 
-    const getWeather = async () => {
+    const getFourDayWeather = async () => {
         const { status, data } = await API.get('/environment/4-day-weather-forecast');
         const forecastArray = data.items[0].forecasts;
         const threeDayForecast = data.items[0].forecasts[0].forecast;
         const temperature = data.items[0].forecasts[0].temperature;
         const timestamp = data.items[0].update_timestamp;
         if (status === 200) {
-            setForecastArray(forecastArray)
+            setForecastArray(forecastArray);
             setThreeDayForecast(threeDayForecast);
             setTemp(temperature);
             setTime(timestamp);
@@ -65,7 +65,7 @@ const FourDayWeather = () => {
     })
 
     useEffect(() => {
-        getWeather();
+        getFourDayWeather();
     }, [time]);
 
     return (<>
