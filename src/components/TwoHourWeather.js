@@ -30,21 +30,22 @@ const TwoHourWeather = (props) => {
 
 
         switch (true) {
-            case currentWeather.includes("Thundery"):
+            case currentWeather.includes("Thundery Showers"):
                 setWeatherIcon('thunderstorm-2hr');
                 break;
             case currentWeather.includes("Fair"):
                 setWeatherIcon('sunny-2hr');
                 break;
-            case currentWeather.includes("Cloudy"):
+            case currentWeather.includes("Cloudy" || "Partly Cloudy"):
                 setWeatherIcon('cloudy-2hr');
                 break;
             case currentWeather.includes("Showers"):
                 setWeatherIcon('showers-2hr');
                 break;
-            /* default:
-        setWeatherIcon('sunny');
-        break; */}
+        //     default:
+        // setWeatherIcon('sunny');
+        // break;
+      }
 
 
     }, [userArea, time]);
