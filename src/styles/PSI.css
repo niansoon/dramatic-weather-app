@@ -73,3 +73,23 @@ ul {
     background-color: red;
     color: whitesmoke;
 }
+
+.greenLabel {
+    color: green;
+}
+
+.blueLabel {
+    color: dodgerblue;
+}
+
+.yellowLabel {
+    color: gold;
+}
+
+.orangeLabel {
+    color: orange;
+}
+
+.redLabel {
+    color: red;
+}
