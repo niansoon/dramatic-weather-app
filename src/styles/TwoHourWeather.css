@@ -43,22 +43,22 @@
 }
 
 #thunderstorm-2hr {
-    background-image: url('../assets/2hr-images/Thunderstorm.png');
+    background-image: url('../assets/Thunderstorm.png');
 }
 
 
 #sunny-2hr {
-    background-image: url('../assets/2hr-images/Sunny.png');
+    background-image: url('../assets/Sunny.png');
 }
 
 #cloudy-2hr {
-    background-image: url('../assets/2hr-images/Cloudy.png');
+    background-image: url('../assets/Cloudy.png');
 }
 
 #showers-2hr {
-    background-image: url('../assets/2hr-images/Heavy_Rain.png');
+    background-image: url('../assets/Heavy_Rain.png');
 }
 
 #light-rain-2hr {
-    background-image: url('../assets/2hr-images/Light_Rain.png');
+    background-image: url('../assets/Light_Rain.png');
 }
