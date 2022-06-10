@@ -25,7 +25,7 @@ const UVI = () => {
         if (display < 3) {
             styles = "greenUV";
             setStatus("Low");
-        } else if (display < 6 || display > 2) {
+        } else if (display <= 6 || display > 2) {
             styles = "yellowUV";
             setStatus("Moderate");
         } else if (display < 8 || display > 5) {
