@@ -52,8 +52,8 @@ const FourDayWeather = () => {
                     </div>
                     <div className='temp-weather'>
                         <div>
-                            {f.temperature.low}°<br/>
-                            {f.temperature.high}°
+                            {f.temperature.high}°<br/>
+                            {f.temperature.low}°
                         </div>
                         <div className='weather-icon' id={weatherIcon}></div>
                     </div>
