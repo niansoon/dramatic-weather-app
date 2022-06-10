@@ -40,6 +40,16 @@
     margin-top: -20px;
     background-size: contain;
     background-repeat: no-repeat;
+    animation: fadeIn 4s;
+    -webkit-animation: fadeIn 4s;
+    -moz-animation: fadeIn 4s;
+    -o-animation: fadeIn 4s;
+    -ms-animation: fadeIn 4s;
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1;}
 }
 
 #thunderstorm-2hr {
@@ -60,4 +70,8 @@
 
 #light-rain-2hr {
     background-image: url('../assets/images/Light_Rain.png');
+}
+
+#windy-2hr {
+    background-image: url("../assets/images/Windy.png");
 }

@@ -5,22 +5,13 @@ import '../styles/TwentyFourHourWeather.css';
 const TwentyFourHourForecast = (props) => {
 
     const [twentyFourHourArray, setTwentyFourHourArray] = useState([]);
-    const [firstForecast, setFirstForecast] = useState({});
-    const [secondForecast, setSecondForecast] = useState({});
-    const [thirdForecast, setThirdForecast] = useState({});
     const [region, setRegion] = useState('');
 
     const getTwentyFourHourWeather = async () => {
         const { status, data } = await API.get('/environment/24-hour-weather-forecast');
         const twentyFourHourArray = data.items[0].periods;
-        const firstForecast = data.items[0].periods[0].regions;
-        const secondForecast = data.items[0].periods[1].regions;
-        const thirdForecast = data.items[0].periods[2].regions;
         if (status === 200) {
             setTwentyFourHourArray(twentyFourHourArray);
-            setFirstForecast(firstForecast);
-            setSecondForecast(secondForecast);
-            setThirdForecast(thirdForecast);
         }
     }
 
@@ -54,12 +45,12 @@ const TwentyFourHourForecast = (props) => {
     const timingArray = twentyFourHourArray.map(i => { return i.time.start });
     const dailyArray = timingArray.map(i => {
         switch (true) {
-            case (i[12] === '8'):
+            case (i[12] === '8' || i[12] === '0'):
                 timing = 'Night';
                 break;
             case (i[12] === '6'):
                 timing = 'Morning';
-                break; 
+                break;
             case (i[12] === '2'):
                 timing = 'Afternoon';
                 break;
@@ -70,6 +61,22 @@ const TwentyFourHourForecast = (props) => {
         return timing;
     })
 
+    const forecastList = forecastArray.map((f, i) => {
+        if (i < 3) {
+            return (
+                <div className="weather-list-24hr">
+                    <div className='timing'>{dailyArray[i]}</div>
+                    <div style={{ display: 'flex', justifyContent: 'center' }}>
+                        <div className={`weather-icon-24hr ${iconArray[i]}`}></div>
+                    </div>
+                    <div className='forecast'>
+                        {f}
+                    </div>
+                </div>
+            )
+        };
+    })
+
 
     useEffect(() => {
         getTwentyFourHourWeather();
@@ -78,33 +85,7 @@ const TwentyFourHourForecast = (props) => {
 
     return (
         <div className="container-24hr">
-            <div className="weather-list-24hr">
-                <div className='timing'>{dailyArray[0]}</div>
-                <div style={{ display: 'flex', justifyContent: 'center' }}>
-                    <div className={`weather-icon-24hr ${iconArray[0]}`}></div>
-                </div>
-                <div className='forecast'>
-                    {firstForecast[region]}
-                </div>
-            </div>
-            <div className="weather-list-24hr">
-                <div className='timing'>{dailyArray[1]}</div>
-                <div style={{ display: 'flex', justifyContent: 'center' }}>
-                    <div className={`weather-icon-24hr ${iconArray[1]}`}></div>
-                </div>
-                <div className='forecast'>
-                    {secondForecast[region]}
-                </div>
-            </div>
-            <div className="weather-list-24hr">
-                <div className='timing'>{dailyArray[2]}</div>
-                <div style={{ display: 'flex', justifyContent: 'center' }}>
-                    <div className={`weather-icon-24hr ${iconArray[2]}`}></div>
-                </div>
-                <div className='forecast'>
-                    {thirdForecast[region]}
-                </div>
-            </div>
+            {forecastList}
         </div>
     );
 };

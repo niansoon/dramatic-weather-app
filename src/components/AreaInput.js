@@ -1,4 +1,5 @@
 import Select from 'react-select'
+import '../index.css'
 
 const options = [
   { value: 'Ang Mo Kio', label: 'Ang Mo Kio', region: 'north' },
@@ -54,14 +55,27 @@ const customStyles = {
   option: (styles) => ({
     ...styles,
     cursor: 'pointer',
-    background: '#6468A2',
   }),
   menuList: base => ({
     ...base,
     // to remove the whitespace on first and last option
-    padding: 0
+    padding: 0,
+    background: '#41415F',  
   })
 }
+const customTheme = (theme) => {
+  return {
+    ...theme,
+    colors: {
+      ...theme.colors,
+      neutral80: 'white',
+      primary25: '#6468A2',
+      primary: '#6468A2',
+      neutral0: '#41415F',
+    },
+  };
+}
+
 const AreaInput = (props) => {
   const input = props.result;
 
@@ -69,10 +83,12 @@ const AreaInput = (props) => {
     <>
       <div className="select">
         <Select
+          theme = {customTheme}
           styles={customStyles}
           defaultValue={input.weather}
           onChange={input.setWeather}
           options={options}
+/*           menuIsOpen={true} */ // leave menu open for easier inspection
         />
       </div>
     </>
